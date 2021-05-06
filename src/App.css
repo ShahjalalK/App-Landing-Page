@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 .App{
+    display: block;
     min-height: 100vh;
     background-color: #39445a;
     padding: 130px 0 70px;
