@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Testimonials.css'
 import image1 from '../../Image/testimonial/5.jpg'
 import image3 from '../../Image/testimonial/1.jpg'
@@ -7,21 +7,55 @@ import image4 from '../../Image/testimonial/4.jpg'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Footer from '../../Components/Footer/Footer'
+import { Spinner } from 'react-bootstrap'
 
 export const Testimonials = () => {
-    return (
+    const [Looding, setLooding] = useState(false)
+    useEffect(() => {
+        setLooding(true);
+        setTimeout(() => {
+            setLooding(false)
+        }, 500)
+    }, [])
+
+    const state= {
+        responsive:{
+            0: {
+                items: 1,
+            },
+            450: {
+                items: 2,
+            },
+            600: {
+                items: 3,
+            },
+            1000: {
+                items: 3,
+            },
+        },
+    }
+    return (        
         <>
-            <section className="testimonials section-padding">
+        {Looding ? (<div className="spinners"><Spinner animation="border" /></div>) : (
+            <>
+                <section className="testimonials section-padding">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-8">
                             <div className="section-title">
-                                <h2>What our <span>client</span> say</h2>
+                                <h2 className="animate__animated animate__bounce animate__fadeInDown">What our <span>client</span> say</h2>
                             </div>
                         </div>
                     </div>
                     <div className="row">
-                        <OwlCarousel className='owl-theme' loop margin={1} dots autoplay >
+                        <OwlCarousel 
+                            className='owl-theme' 
+                                loop={true}
+                                dots
+                                autoplay
+                                items={3}
+                                responsive={state.responsive} >                          
                             <div class='item'>
                                 <div className="img-box">
                                     <img src={image1} alt="Image1" />
@@ -90,6 +124,13 @@ export const Testimonials = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
+            
+            
+            </>
+
+        )}
+            
         </>
     )
 }

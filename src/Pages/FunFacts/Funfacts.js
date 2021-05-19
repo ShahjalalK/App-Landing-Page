@@ -9,15 +9,15 @@ export const Funfacts = () => {
         <>
             <section className="fun-facts section-padding">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 col-md-5">
+                    <div className="row ">
+                        <div className="col-lg-6 col-md-5 ">
                             <div className="fan-facts-img">
                                 <img src={image2} alt="" />
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-7">
                             <div className="section-title">
-                                <h2>fun <span>facts</span></h2>
+                                <h2 className="animate__animated animate__bounce animate__fadeInDown">fun <span>facts</span></h2>
                             </div>
                             <div className="fan-facts-text">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima earum, deserunt nulla eligendiLorem ipsum dolor sit amet consectetur adipisicing elit. Minima earum, deserunt nulla eligendi.</p>

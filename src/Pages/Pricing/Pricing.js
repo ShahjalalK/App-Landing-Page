@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Pricing.css'
 import { Link } from 'react-router-dom'
 import team1 from '../../Image/team/7.jpg'
@@ -6,24 +6,54 @@ import team2 from '../../Image/team/2.jpg'
 import team3 from '../../Image/team/3.jpg'
 import team4 from '../../Image/team/4.jpg'
 import team5 from '../../Image/team/5.jpg'
-import { Accordion, Card } from 'react-bootstrap'
+import { Accordion, Card, Spinner } from 'react-bootstrap'
 
 
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Footer from '../../Components/Footer/Footer'
+import According from './According'
 
 
 export const Pricing = () => {
- 
+  const [Looding, setLooding] = useState(false)
+    useEffect(() => {
+        setLooding(true);
+        setTimeout(() => {
+            setLooding(false)
+        }, 500)
+    }, [])
+
+ const[drop, setDrop] = useState(false)
+ const[drop2, setDrop2] = useState(false)
+ const[drop3, setDrop3] = useState(false) 
+ const state= {
+  responsive:{
+      0: {
+          items: 1,
+      },
+      450: {
+          items: 2,
+      },
+      600: {
+          items: 3,
+      },
+      1000: {
+          items: 4,
+      },
+  },
+}
   return (
     <>
-      <section className="pricing section-padding">
+    {Looding ? (<div className="spinners"><Spinner animation="border" /></div>) : (
+      <>
+              <section className="pricing section-padding">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="section-title">
-                <h2>Pricing <span>plan</span></h2>
+                <h2 className="animate__animated animate__bounce animate__fadeInDown">Pricing <span>plan</span></h2>
               </div>
             </div>
           </div>
@@ -114,7 +144,14 @@ export const Pricing = () => {
             </div>
           </div>
           <div className="row justify-content-center">
-            <OwlCarousel className='owl-theme' loop margin={5} autoplay >
+            <OwlCarousel className='owl-theme' 
+                loop={true}
+                dots={true}
+                autoplay
+                margin={10}
+                items={5}
+                responsive={state.responsive}
+            >
               <div class='item'>
                 <img src={team1} alt="team1" />
                 <h3>Shahjalalk</h3>
@@ -153,39 +190,18 @@ export const Pricing = () => {
                 <h2>frequently <span>asked</span> queries</h2>
               </div>
             </div>
-          </div>
+          </div>         
           <div className="row justify-content-center">
-            <div className="col-lg-10">
-                <Accordion defaultActiveKey="0">
-                  <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="0">
-                      <h3>100% Fluid Responsive Fits any device perfectly</h3>
-                </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="0">
-                      <Card.Body><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima earum, deserunt nulla eligendi aliquam hic repellendus aliquid nostrum et tenetur.</p></Card.Body>
-                    </Accordion.Collapse>
-                  </Card>
-                  <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="1">
-                    <h3>Clean Code</h3>                      
-                  </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="1">
-                      <Card.Body><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima earum, deserunt nulla eligendi aliquam hic repellendus aliquid nostrum et tenetur.</p></Card.Body>
-                    </Accordion.Collapse>
-                  </Card>
-                  <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="2">
-                    <h3>Custom Fonts Support</h3>                      
-                  </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="2">
-                      <Card.Body><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima earum, deserunt nulla eligendi aliquam hic repellendus aliquid nostrum et tenetur.</p></Card.Body>
-                    </Accordion.Collapse>
-                  </Card>
-                </Accordion>
+            <div className="col-lg-10 mt-5">
+                <According />
             </div>
           </div>
         </div>
       </section>
+      <Footer />
+      </>
+    )}
+      
     </>
   )
 }

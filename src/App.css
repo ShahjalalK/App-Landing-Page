@@ -1,11 +1,13 @@
 @import url('./GoogleFonts/Poppins.css');
 
-:root{
+:root{    
     --main-color: #7857fe;
+    --top-color: #7857fe;
     --color-1: #e91e63;
     --color-2: #f5ae10;
     --color-3: #09d69c;
     --bg-dark: #2b2c2f;
+    --bg-dark2: #2b2c2f;
     --main-to-dark-color: var(--main-color);
     --dark-to-main-color: var(--bg-dark);
     --shadow-block-100: 0 5px 15px rgba(0,0,0,0.1);
@@ -16,8 +18,7 @@
     --black-000: #ffffff;
     --black-alpha-100: rgba(0,0,0,0.05);
 }
-
-body{
+.app{
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -27,10 +28,33 @@ body{
     margin: 0;
     font-weight: 300;
 }
-*{
+.app.dark{
+    background-color: var(--bg-dark);
+    --black-100: var(--bg-dark);
+    --black-000: var(--bg-dark);
+    --main-to-dark-color: var(--bg-dark);
+    --dark-to-main-color: var(--main-color);
+    --shadow-block-100: var(--shadow-black-300);
+    --black-alpha-100: rgba(255,255,255,0.05);
+    --black-900: #ffffff;
+    --black-400: #bbbbbb;
+    --top-color : var(--bg-dark2);
+}
+*{ 
     margin: 0;
     padding: 0;
     outline: none;    
+}
+.spinners{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--top-color);
 }
 .container{
     padding: 0 15px;
@@ -40,14 +64,14 @@ img{
     max-width: 100%;
     vertical-align: middle;
 }
-ul{
+li{
     list-style: none;
 }
 a{
     text-decoration: none;
 }
 
-.btn-1{
+.btn.btn-1{
     background-color: #ffffff;
     padding: 12px 30px;
     border: none;
@@ -74,7 +98,7 @@ a{
     color: #ffffff;
     background-color: var(--main-color);
 }
-.btn-2{
+.btn.btn-2{
     background-color: var(--main-color);
     padding: 12px 30px;
     border: none;
@@ -184,7 +208,7 @@ a{
 }
 
 .section-padding{
-    padding: 80px 0;
+    padding: 115px 0;
 }
 .section-title{
     margin-bottom: 60px;
@@ -204,3 +228,21 @@ a{
 .owl-theme .owl-dots .owl-dot.active span{
     background: var(--main-color) !important;
 }
+@media screen and (max-width: 767px){
+    .section-title h2{
+        font-size: 35px;
+    }
+}
+@media screen and (max-width: 575px){
+    .section-title h2{
+        font-size: 30px;
+    }
+}
+
+@media  screen and (max-width: 375px) {
+    .btn-1{
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+}
+

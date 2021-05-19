@@ -98,43 +98,22 @@
     color: var(--black-400);
     text-transform: capitalize;
 }
-/* Faq Section */
-.faq .card:not(:last-child){
-    margin-bottom: 20px;
-}
-.faq .card-header{
-    box-shadow: var(--main-color);
-    padding: 20px 30px;
-    background-color: var(--main-color);
-    transition: all 0.5s ease;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    cursor: pointer;
-    position: relative;
-}
 
-.faq .card-header h3{
-    font-size: 18px;
-    font-weight: 500;
-    color: #fff;
-    margin: 0;
-    transition: all 0.5s ease;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
+/* Responsive */
+@media screen and (max-width: 991px){
+    .pricing-plan{
+        margin-bottom: 30px;
+    }
 }
-
-.faq .card-body{
-    padding: 30px;
-    background-color: var(--black-100);
+@media screen and (max-width: 767px){
+    
 }
-.faq .card-body p{
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--black-400);
-    line-height: 26px;
-    margin: 0;
+@media screen and (max-width: 575px){  
+    
+}
+@media screen and (max-width: 375px) {
+    .pricing-plan .pricing-price .price{
+        font-size: 65px;
+    }
+    
 }

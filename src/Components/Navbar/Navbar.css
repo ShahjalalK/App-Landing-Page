@@ -1,14 +1,20 @@
 
 
 .navbar{
-    background-color: transparent;
-    padding: 20px 0;
+    background-color: var(--top-color);
+    padding: 10px 0;
     min-width: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .navbar.navbar-shrink{
-    box-shadow: 0 10px 0 rgba(0,0,0,0.1);
-    background-color: var(--main-color);
-    padding: 10px 0;
+    box-shadow: 0 5px 15px var(--dark-to-main-color);
+}
+.navbar.navbar-shrink,
+.navbar.navbar-shrink .navbar-nav{    
+    background-color: var(--top-color);
 }
 
 .navbar-brand{
@@ -65,29 +71,69 @@
 .manuIcon{
     display: none;
     position: absolute;
-    max-width: 25px;
-    max-height: 25px;
+    max-width: 44px;
+    max-height: 34px;
     top: 50%;
     right: 20px;
     transform: translate(25%, -50%);
+    border-radius: 3px;
+    padding: 15px;
     cursor: pointer;
-    color: #ffffff;
-    font-size: 25px;
+    background-color: var(--dark-to-main-color);
     -webkit-transform: translate(25%, -50%);
     -moz-transform: translate(25%, -50%);
     -ms-transform: translate(25%, -50%);
     -o-transform: translate(25%, -50%);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    text-align: center;
+}
+.manuIcon i{
+    position: absolute;   
+    font-size: 17px;
+    color: #ffffff;
+    top: 6px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.navbar.navbar-shrink .manuIcon{
+    background-color: var(--main-color);
+    box-shadow: var(--shadow-block-100);    
+}
+.btn.sign-up{
+    font-size: 15px;
+    padding: 10px 26px;
 }
 
+
 @media screen and (max-width: 1200px){
+    .navbar .nav-item .nav-link{
+        font-size: 12px;        
+    }
+    .btn.sign-up{
+        font-size: 12px;
+        padding: 8px 24px;
+    }
+}
+@media screen and (max-width: 991px){
+    .navbar{
+        padding: 0;
+    }
+    .navbar-brand{
+        font-size: 28px;
+    }
     .navbar-nav{
         position: absolute;
         top: 0;
         left: -100%;
         width: 100%;
-        height: 1200vh;
-        margin-top: 70px;
-        background-color: var(--main-color);
+        height: 100vh;
+        margin-top: 53px;
+        background-color: var(--dark-to-main-color);
+        box-shadow: var(--shadow-black-300);
         transition: all 0.5s ease;
         -webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
@@ -99,8 +145,32 @@
     }
     .manuIcon{
         display: block;
+        right: 55px;
     }
     .navbar .nav-item{
-        display: block;        
+        display: block; 
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;       
+    }
+    .navbar .nav-item .nav-link{
+        padding: 5px 15px;
+    }
+    .btn.sign-up{
+        display: block;
+        width: 95%;
+        margin: auto;
+    }
+    .btn.sign-up:hover{
+        display: none;
     }
 }
+@media screen and (max-width: 767px){
+    .manuIcon{
+        right: 25px;
+    }
+}
+@media screen and (max-width: 557px){
+
+}
+

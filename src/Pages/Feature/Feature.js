@@ -1,25 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import './Feature.css'
 import { Funfacts } from '../FunFacts/Funfacts';
+import Footer from '../../Components/Footer/Footer';
+import { Spinner } from 'react-bootstrap';
 
 export const Feature = () => {
+    const [Looding, setLooding] = useState(false)
+    useEffect(() => {
+        setLooding(true);
+        setTimeout(() => {
+            setLooding(false)
+        }, 500)
+    }, [])
+    const state= {
+        responsive:{
+            0: {
+                items: 1,
+            },
+            450: {
+                items: 2,
+            },
+            600: {
+                items: 3,
+            },
+            1000: {
+                items: 3,
+            },
+        },
+    }
 
     return (
         <>
-            <section className="features section-padding">
+        {Looding ? (<div className="spinners"><Spinner animation="border" /></div>) : (
+
+            <>
+                <section className="features section-padding">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-8">
                             <div className="section-title">
-                                <h2>Awesome <span>Features</span></h2>
+                                <h2 className="animate__animated animate__bounce animate__fadeInDown">Awesome <span>Features</span></h2>
                             </div>
                         </div>
                     </div>
                     <div className="row">
-                        <OwlCarousel className='owl-theme features-theme' items={3} loop dots autoplay margin={10} >
+                        <OwlCarousel className='features-theme'                        
+                        loop={true}
+                        dots={true}
+                        autoplay
+                        margin={10}
+                        items={4}
+                        responsive={state.responsive} >
                             <div class='item '>
                                 <div className="icon">
                                     <i className="fas fa-code"> </i>
@@ -53,6 +87,12 @@ export const Feature = () => {
                 </div>
             </section>
             <Funfacts />
+            <Footer />
+            
+            </>
+
+        )}
+            
         </>
     )
 }

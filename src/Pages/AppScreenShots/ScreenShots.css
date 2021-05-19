@@ -105,3 +105,32 @@
     color: var(--black-400);
     line-height: 26px;
 }
+
+/* Responsive */
+@media screen and (max-width: 991px){
+    .how-it-works-item,
+   .app-download-item{
+       margin-bottom: 30px;
+   }
+   .how-it-works-item.line-right::before{
+       content: none;
+   }
+   .how-it-works-item{
+       box-shadow: var(--shadow-block-100);
+       border-radius: 10px;
+       -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+       -ms-border-radius: 10px;
+       -o-border-radius: 10px;
+}
+}
+@media screen and (max-width: 767px){
+    
+}
+@media screen and (max-width: 575px){  
+    
+}
+@media screen and (max-width: 375px) {
+    
+    
+}
